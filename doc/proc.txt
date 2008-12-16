@@ -1,0 +1,78 @@
+*proc.txt* 	A frontend for 'ps' and 'kill'
+
+Functions:
+
+Ps()									*Ps()*	
+	        show a list of processes in a new buffer.
+	        Use the keys described below to select and kill processes.
+
+Mappings:
+
+<leader>k 	
+<Plug>ProcKill
+	        kill marked processes or the one in the current row, if none is
+	        marked. You will be asked for a signal, either as number or name
+	        (i.e. 'HUP'). <Esc> cancels killing and removes marks.
+
+<leader><leader>
+<Plug>ProcMark
+		toggle mark for killing.
+
+<leader><Esc>
+<Plug>ProcUnMark
+		remove all marks.
+
+<leader>s	
+<Plug>ProcSortByCurrentColumn
+		sort processes by current column.
+
+<leader>n	
+<Plug>ProcUnSort
+		restore unsorted view.
+
+<leader>a	
+<Plug>ProcShowAllProcesses
+		show all processes. 
+
+<leader>u	
+<Plug>ProcShowUserProcesses
+	        show only user processes (default).
+
+<leader>c	
+<Plug>ProcSortByCpu
+		sort processes by percentage of cpu usage.
+
+<leader>m	
+<Plug>ProcSortByMem
+		sort processes by percentage of memory usage.
+
+<leader>p	
+<Plug>ProcUpdate
+		update the process buffer, keep sorting order.
+
+<leader>q	
+<Plug>ProcQuit
+		close the process buffer.
+
+Marking and killing also works in visual line mode, which is usefull for
+killing a bunch of processes.
+
+Settings:
+
+g:PsArgs	
+		a string containing format options for 'ps'
+		Default: "ux"
+
+		Example: 
+		let g:PsArgs = "x -o user,pid,s,tty,pcpu,pmem,time,args"
+
+If you define a format list via '-o', it must contain a field 'pid'
+to keep this script working. See also ps (1).
+
+g:PsAutoUpdate
+	        If you are using gvim and switch to another buffer|window, the
+	        process view will be updates as soon as the focus reenters its
+	        window. If you don't like this behaviour, set this flag to 0
+
+
+vim:tw=78:ts=8:noet:ft=help:

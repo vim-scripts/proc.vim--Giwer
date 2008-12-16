@@ -1,0 +1,8 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2486
+
+This is a fronted for the *nix commands 'ps' and 'kill' and  a more comfortable replacement for 'top'.
+
+By calling Ps() you get a view of the current system processes in a new buffer. 
+
+Keybindings exist for sorting, marking and killing.
+
