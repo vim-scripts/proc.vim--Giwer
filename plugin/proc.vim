@@ -1,9 +1,9 @@
 " proc.vim 
 " A frontend for 'ps' and 'kill'
-" Last Change:	Di 16.Dez 2008
+" Last Change:	Di 17.Dez 2008
 " Maintainer:	Johann Giwer johanngiwer@web.de
 " License:	This file is placed in the public domain.
-" Version:      0.1
+" Version:      0.1.1
 "
 " Functions:
 "
@@ -134,10 +134,10 @@ function! Ps()
         map <buffer><leader>p 				<Plug>ProcUpdate
     endif
     if !hasmapto('<Plug>ProcShowAllProcesses')
-        map <buffer><leader>a 				<Plug>ProcShowAllProcesses
+        map <buffer><leader>a 				<Plug>ProcAllProcs
     endif
     if !hasmapto('<Plug>ProcShowUserProcesses')
-        nmap <buffer><leader>u 				<Plug>ProcShowUserProcesses
+        nmap <buffer><leader>u 				<Plug>ProcUserProcs
     endif
 
     noremap <buffer><Plug>ProcQuit 					:bd <CR>
@@ -297,4 +297,4 @@ function! Ps()
     call s:Update ()
 endfunction
 
-vim:tw=78:ts=8:noet:ft=vim:ff=unix:
+"vim:tw=78:ts=8:noet:ft=vim:ff=unix:
